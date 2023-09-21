@@ -1,0 +1,32 @@
+<h1>Contacts</h1>
+
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">STT</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Social Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% count=1 %>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <th scope="row"><%= count %></th>
+        <td><%= contact.name %></td>
+        <td><%= contact.email %></td>
+        <td><%= contact.phone %></td>
+        <td><a><%= contact.socialLink %><a/></td>
+        <td><%= link_to "Show", contact %></td>
+        <td><%= link_to "Edit", edit_contact_path(contact) %></td>
+        <td><%= link_to "Delete", contact, method: :delete, data: { confirm: 'Are you sure? '} %></td>
+      </tr>
+      <% count += 1 %>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to "New Contact", new_contact_path, class:"btn btn-primary" %>
+
+
