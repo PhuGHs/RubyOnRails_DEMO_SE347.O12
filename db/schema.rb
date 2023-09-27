@@ -16,8 +16,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_26_095324) do
     t.string "email"
     t.string "phone"
     t.string "socialLink"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

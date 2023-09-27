@@ -30,6 +30,9 @@
     <%= form.label :socialLink, style: "display: block" %>
     <%= form.text_field :socialLink, class:"form-control", placeholder:"Social" %>
   </div>
+  <div class="field form-group">
+    <%= form.text_field :user_id, class:"form-control", placeholder:"User_Id", type: :hidden, value: current_user.id %>
+  </div>
   <br>
   <div class="actions">
     <%= form.submit class:"btn btn-primary" %>

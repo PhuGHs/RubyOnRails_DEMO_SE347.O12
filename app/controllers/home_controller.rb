@@ -4,10 +4,4 @@ class HomeController < ApplicationController
 
   def about
   end
-
-  def contacts
-  end
-
-  def addContacts
-  end
 end

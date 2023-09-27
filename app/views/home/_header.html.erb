@@ -5,28 +5,23 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <% if current_user %>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <%= link_to 'Contacts', contacts_path, class:"nav-link"%>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'New Contact', new_contact_path, class:"nav-link"%>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'About us', about_path, class:"nav-link"%>
-            </li>
-        </ul>
-      <% end %>
-      <ul>
-        <li class="nav-item">
-          <% if current_user %>
-            <%= link_to 'Logout', logout_path, class:"nav-link"%>
-          <% else %>
-            <%= link_to 'Sign in', login_path, class:"nav-link"%>
-          <% end %>
-        </li>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <%= link_to 'Contacts', contacts_path, class:"nav-link"%>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'New Contact', new_contact_path, class:"nav-link"%>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'About us', about_path, class:"nav-link"%>
+          </li>
       </ul>
     </div>
+    <% if current_user %>
+        <span class="text-capitalize text-info mr-3 font-italic">
+          Hello, <%= current_user.username %>
+        </span>
+        <%= link_to 'Logout', logout_path %>
+      <% end %>
   </div>
 </nav>
