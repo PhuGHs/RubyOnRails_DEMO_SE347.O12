@@ -1,8 +1,11 @@
 class SessionsController < ApplicationController
 	skip_before_action :verify_authenticity_token
+
+	#Hien thi form dang nhap
 	def new 
 	end
 
+	#Dang nhap
 	def create
 		@user = User.find_by_email(params[:session][:email])
 		if @user && @user.authenticate(params[:session][:password])
@@ -15,6 +18,7 @@ class SessionsController < ApplicationController
 		end
 	end
 
+	#Dang xuat
 	def destroy
 		session[:user_id] = nil
 		flash[:notice] = "You have been logged out!"
